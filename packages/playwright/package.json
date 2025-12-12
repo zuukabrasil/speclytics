@@ -1,0 +1,35 @@
+{
+  "name": "@speclytics/playwright",
+  "version": "0.0.1",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": ["dist"],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup src/index.ts --format esm --dts",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@speclytics/core": "workspace:*",
+    "@speclytics/sink-http": "workspace:*"
+  },
+  "peerDependencies": {
+    "@playwright/test": ">=1.40.0"
+  },
+  "peerDependenciesMeta": {
+    "@playwright/test": {
+      "optional": false
+    }
+  },
+  "devDependencies": {
+    "tsup": "^8.3.0",
+    "typescript": "^5.6.3"
+  }
+}
